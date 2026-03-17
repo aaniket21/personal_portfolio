@@ -13,7 +13,6 @@ export const skillsData = [
   "CSS",
   "MongoDB",
   "PostgreSQL",
-  "Prisma",
   "Git",
   "GitHub",
   "Linux",

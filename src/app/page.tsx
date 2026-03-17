@@ -19,7 +19,7 @@ export default function Home() {
         </SectionReveal>
 
         <SectionReveal>
-          <Experience />
+          <Education />
         </SectionReveal>
 
         <SectionReveal>
@@ -27,11 +27,11 @@ export default function Home() {
         </SectionReveal>
 
         <SectionReveal>
-          <Education />
+          <Projects />
         </SectionReveal>
 
         <SectionReveal>
-          <Projects />
+          <Experience />
         </SectionReveal>
 
         <SectionReveal>
