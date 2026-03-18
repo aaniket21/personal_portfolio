@@ -23,6 +23,17 @@ interface Project {
 export interface ProjectCardProps {
   project: Project;
 }
+interface Certificate {
+  title: string;
+  description: string;
+  issuer: string;
+  date: string;
+  image: string;
+  link: string;
+}
+export interface CertificateCardProps {
+  certificate: Certificate;
+}
 export interface Props {
   children: ReactNode;
 }
