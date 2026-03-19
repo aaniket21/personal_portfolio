@@ -8,7 +8,7 @@ This site showcases my journey, skills, internships, and projects — wrapped in
 
 ## 🚀 Live Demo
 
-🔗 [Visit Portfolio Website](https://github.com/aaniket21/portfolio_website)
+🔗 [Visit Portfolio Website](https://aniket21.tech)
 
 ---
 
