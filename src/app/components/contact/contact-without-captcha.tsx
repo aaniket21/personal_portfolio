@@ -77,13 +77,13 @@ const ContactWithoutCaptcha = () => {
   };
 
   return (
-    <div className="relative group p-8 lg:p-10 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-3xl shadow-2xl">
+    <div className="relative group p-8 lg:p-10 rounded-3xl border border-slate-300/70 dark:border-white/5 bg-[#fff8f1]/85 dark:bg-white/[0.02] backdrop-blur-3xl shadow-[0_16px_36px_rgba(68,42,22,0.14)] dark:shadow-2xl transition-colors duration-300">
       <form onSubmit={handleSendMail} className="flex flex-col gap-8">
         <div className="flex flex-col gap-2">
-          <h3 className="text-2xl font-bold text-white tracking-tight">
+          <h3 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
             Send a Message
           </h3>
-          <p className="text-slate-400 text-sm">
+          <p className="text-slate-600 dark:text-slate-400 text-sm">
             I'll get back to you within 24 hours.
           </p>
         </div>
@@ -96,7 +96,7 @@ const ContactWithoutCaptcha = () => {
               Your Name
             </label>
             <input
-              className="bg-white/5 w-full border border-white/10 rounded-2xl focus:border-red-500/50 focus:bg-white/10 ring-0 outline-0 transition-all duration-300 px-5 py-4 text-white placeholder:text-slate-600"
+              className="bg-slate-900/5 dark:bg-white/5 w-full border border-slate-300/70 dark:border-white/10 rounded-2xl focus:border-red-500/50 focus:bg-slate-900/10 dark:focus:bg-white/10 ring-0 outline-0 transition-all duration-300 px-5 py-4 text-slate-900 dark:text-white placeholder:text-slate-500"
               type="text"
               placeholder="John Doe"
               maxLength={100}
@@ -114,7 +114,7 @@ const ContactWithoutCaptcha = () => {
               Your Email
             </label>
             <input
-              className={`bg-white/5 w-full border rounded-2xl focus:bg-white/10 ring-0 outline-0 transition-all duration-300 px-5 py-4 text-white placeholder:text-slate-600 ${error.email ? "border-red-500/50" : "border-white/10 focus:border-red-500/50"}`}
+              className={`bg-slate-900/5 dark:bg-white/5 w-full border rounded-2xl focus:bg-slate-900/10 dark:focus:bg-white/10 ring-0 outline-0 transition-all duration-300 px-5 py-4 text-slate-900 dark:text-white placeholder:text-slate-500 ${error.email ? "border-red-500/50" : "border-slate-300/70 dark:border-white/10 focus:border-red-500/50"}`}
               type="email"
               placeholder="john@example.com"
               maxLength={100}
@@ -140,7 +140,7 @@ const ContactWithoutCaptcha = () => {
               Your Message
             </label>
             <textarea
-              className="bg-white/5 w-full border border-white/10 rounded-2xl focus:border-red-500/50 focus:bg-white/10 ring-0 outline-0 transition-all duration-300 px-5 py-4 text-white placeholder:text-slate-600 resize-none"
+              className="bg-slate-900/5 dark:bg-white/5 w-full border border-slate-300/70 dark:border-white/10 rounded-2xl focus:border-red-500/50 focus:bg-slate-900/10 dark:focus:bg-white/10 ring-0 outline-0 transition-all duration-300 px-5 py-4 text-slate-900 dark:text-white placeholder:text-slate-500 resize-none"
               placeholder="Tell me about your project..."
               maxLength={500}
               name="message"

@@ -6,7 +6,7 @@ import { SplitText } from "gsap/dist/SplitText";
 import Link from "next/link";
 import { useRef } from "react";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaTwitterSquare, FaCode } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
@@ -103,11 +103,11 @@ const HeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[90vh] flex flex-col items-center justify-center py-12 lg:py-24 overflow-hidden"
+      className="relative min-h-[90vh] flex flex-col items-center justify-center py-12 lg:py-24 overflow-hidden transition-colors duration-300"
     >
       {/* Background Ambient Glows */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-red-600/10 blur-[120px] rounded-full animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-900/10 blur-[150px] rounded-full animate-pulse delay-700" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-red-600/10 dark:bg-red-600/10 blur-[120px] rounded-full animate-pulse" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-200/30 dark:bg-red-900/10 blur-[150px] rounded-full animate-pulse delay-700" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center px-4 md:px-8 relative z-10 w-full max-w-7xl mx-auto">
         {/* Left Side: Content */}
@@ -116,7 +116,7 @@ const HeroSection = () => {
             <span className="hero-tag px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-bold tracking-[0.3em] w-fit">
               WELCOME TO MY UNIVERSE
             </span>
-            <h1 className="hero-heading text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1]">
+            <h1 className="hero-heading text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white leading-[1.1]">
               Crafting{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-800">
                 Digital
@@ -126,9 +126,11 @@ const HeroSection = () => {
                 Masterpieces
               </span>
             </h1>
-            <p className="hero-heading text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed font-medium">
+            <p className="hero-heading text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed font-medium">
               I'm{" "}
-              <span className="text-white font-bold">{personalData.name}</span>,
+              <span className="text-slate-900 dark:text-white font-bold">
+                {personalData.name}
+              </span>
               a professional
               <span
                 className="text-red-500 ml-2 font-bold inline-block min-w-[200px]"
@@ -147,28 +149,28 @@ const HeroSection = () => {
               <Link
                 href={personalData.github}
                 target="_blank"
-                className="social-icon p-3 rounded-xl bg-white/5 border border-white/10 text-white hover:text-red-500 hover:border-red-500/50 transition-all duration-300 shadow-xl"
+                className="social-icon p-3 rounded-xl bg-slate-900/5 dark:bg-white/5 border border-slate-300/70 dark:border-white/10 text-slate-800 dark:text-white hover:text-red-500 hover:border-red-500/50 transition-all duration-300 shadow-sm dark:shadow-xl"
               >
                 <BsGithub size={24} />
               </Link>
               <Link
                 href={personalData.linkedIn}
                 target="_blank"
-                className="social-icon p-3 rounded-xl bg-white/5 border border-white/10 text-white hover:text-red-500 hover:border-red-500/50 transition-all duration-300 shadow-xl"
+                className="social-icon p-3 rounded-xl bg-slate-900/5 dark:bg-white/5 border border-slate-300/70 dark:border-white/10 text-slate-800 dark:text-white hover:text-red-500 hover:border-red-500/50 transition-all duration-300 shadow-sm dark:shadow-xl"
               >
                 <BsLinkedin size={24} />
               </Link>
               <Link
                 href={personalData.leetcode}
                 target="_blank"
-                className="social-icon p-3 rounded-xl bg-white/5 border border-white/10 text-white hover:text-red-500 hover:border-red-500/50 transition-all duration-300 shadow-xl"
+                className="social-icon p-3 rounded-xl bg-slate-900/5 dark:bg-white/5 border border-slate-300/70 dark:border-white/10 text-slate-800 dark:text-white hover:text-red-500 hover:border-red-500/50 transition-all duration-300 shadow-sm dark:shadow-xl"
               >
                 <SiLeetcode size={24} />
               </Link>
               <Link
                 href={personalData.codolio}
                 target="_blank"
-                className="social-icon p-3 rounded-xl bg-white/5 border border-white/10 text-white hover:text-red-500 hover:border-red-500/50 transition-all duration-300 shadow-xl"
+                className="social-icon p-3 rounded-xl bg-slate-900/5 dark:bg-white/5 border border-slate-300/70 dark:border-white/10 text-slate-800 dark:text-white hover:text-red-500 hover:border-red-500/50 transition-all duration-300 shadow-sm dark:shadow-xl"
               >
                 <FaCode size={24} />
               </Link>
@@ -188,7 +190,7 @@ const HeroSection = () => {
               <Link
                 href={personalData.resume}
                 target="_blank"
-                className="group px-8 py-4 rounded-2xl border border-white/10 bg-white/5 text-white font-bold uppercase tracking-wider transition-all hover:bg-white/10 hover:border-red-500/50 flex items-center gap-2"
+                className="group px-8 py-4 rounded-2xl border border-slate-300/70 dark:border-white/10 bg-slate-900/5 dark:bg-white/5 text-slate-900 dark:text-white font-bold uppercase tracking-wider transition-all hover:bg-slate-900/10 dark:hover:bg-white/10 hover:border-red-500/50 flex items-center gap-2"
               >
                 Get Resume{" "}
                 <MdDownload className="group-hover:translate-y-1 transition-transform" />
@@ -206,18 +208,20 @@ const HeroSection = () => {
             scale={1.02}
             className="w-full max-w-[550px]"
           >
-            <div
-              ref={codeCardRef}
-              className="relative rounded-3xl border border-white/10 bg-[#050505]/80 backdrop-blur-xl overflow-hidden shadow-2xl group"
-            >
+            <div className="relative">
+              <div className="pointer-events-none absolute -inset-8 rounded-[40px] bg-gradient-to-br from-red-300/25 via-amber-200/20 to-transparent blur-3xl opacity-80 dark:opacity-0 transition-opacity duration-300" />
+              <div
+                ref={codeCardRef}
+                className="relative rounded-3xl border border-slate-300/70 dark:border-white/10 bg-white/85 dark:bg-[#050505]/80 backdrop-blur-xl overflow-hidden shadow-[0_24px_50px_rgba(68,42,22,0.14)] dark:shadow-2xl group"
+              >
               {/* Card Header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/5">
+              <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200/80 dark:border-white/5 bg-slate-900/5 dark:bg-white/5">
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500" />
                   <div className="w-3 h-3 rounded-full bg-red-400/50" />
                   <div className="w-3 h-3 rounded-full bg-red-300/20" />
                 </div>
-                <div className="text-xs font-mono text-slate-500 flex items-center gap-2">
+                <div className="text-xs font-mono text-slate-500 dark:text-slate-500 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                   Portfolio.ts
                 </div>
@@ -229,27 +233,37 @@ const HeroSection = () => {
                     <span className="text-slate-600 italic">01</span>
                     <p>
                       <span className="text-red-500">const</span>{" "}
-                      <span className="text-white">developer</span> = {"{"}
+                      <span className="text-slate-900 dark:text-white">
+                        developer
+                      </span>{" "}
+                      = {"{"}
                     </p>
                   </div>
                   <div className="flex gap-4">
                     <span className="text-slate-600 italic">02</span>
                     <p className="ml-4">
-                      <span className="text-slate-200">name:</span>{" "}
+                      <span className="text-slate-700 dark:text-slate-200">
+                        name:
+                      </span>{" "}
                       <span className="text-red-300">'Aniket'</span>,
                     </p>
                   </div>
                   <div className="flex gap-4">
                     <span className="text-slate-600 italic">03</span>
                     <p className="ml-4">
-                      <span className="text-slate-200">focus:</span>{" "}
+                      <span className="text-slate-700 dark:text-slate-200">
+                        focus:
+                      </span>{" "}
                       <span className="text-red-300">'Fullstack Mastery'</span>,
                     </p>
                   </div>
                   <div className="flex gap-4">
                     <span className="text-slate-600 italic">04</span>
                     <p className="ml-4">
-                      <span className="text-slate-200">skills:</span> [
+                      <span className="text-slate-700 dark:text-slate-200">
+                        skills:
+                      </span>{" "}
+                      [
                       <span className="text-red-300">
                         'React', 'Node.js', 'AI'
                       </span>
@@ -259,14 +273,18 @@ const HeroSection = () => {
                   <div className="flex gap-4">
                     <span className="text-slate-600 italic">05</span>
                     <p className="ml-4">
-                      <span className="text-slate-200">passionate:</span>{" "}
+                      <span className="text-slate-700 dark:text-slate-200">
+                        passionate:
+                      </span>{" "}
                       <span className="text-red-600">true</span>,
                     </p>
                   </div>
                   <div className="flex gap-4">
                     <span className="text-slate-600 italic">06</span>
                     <p className="ml-4">
-                      <span className="text-slate-200">motto:</span>{" "}
+                      <span className="text-slate-700 dark:text-slate-200">
+                        motto:
+                      </span>{" "}
                       <span className="text-red-400">"Build with Purpose"</span>
                     </p>
                   </div>
@@ -278,10 +296,14 @@ const HeroSection = () => {
                     <span className="text-slate-600 italic">08</span>
                     <p>
                       <span className="text-red-500">developer</span>.
-                      <span className="text-white">showcase</span>();
+                      <span className="text-slate-900 dark:text-white">
+                        showcase
+                      </span>
+                      ();
                     </p>
                   </div>
                 </code>
+              </div>
               </div>
             </div>
           </Tilt>

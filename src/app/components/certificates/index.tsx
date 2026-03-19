@@ -6,7 +6,7 @@ import Link from "next/link";
 const CertificatesSection = () => {
   return (
     <section id="certificates" className="mt-16">
-      <h2 className="text-4xl font-bold text-white mb-8 text-center">Certificates</h2>
+      <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-8 text-center transition-colors duration-300">Certificates</h2>
       {/* Marquee Infinite Loop */}
       <div className="mb-8">
         <Marquee speed={40} gradient={false} pauseOnHover={true}>

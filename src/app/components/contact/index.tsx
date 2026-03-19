@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { FaFacebook, FaStackOverflow, FaCode } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoGithub, IoMdCall } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
 import { personalData } from "@/../utils/Data/PersonalData";
@@ -28,7 +27,7 @@ const ContactInfoCard = ({
   <Link
     href={href}
     target="_blank"
-    className="group relative flex items-center gap-4 p-4 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all duration-300 shadow-xl"
+    className="group relative flex items-center gap-4 p-4 rounded-2xl border border-slate-300/70 dark:border-white/5 bg-slate-900/[0.03] dark:bg-white/[0.02] hover:bg-slate-900/[0.06] dark:hover:bg-white/[0.05] hover:border-slate-400/60 dark:hover:border-white/10 transition-all duration-300 shadow-sm dark:shadow-xl"
   >
     <div
       className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300`}
@@ -43,7 +42,7 @@ const ContactInfoCard = ({
       <span className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">
         {label}
       </span>
-      <span className="text-sm md:text-base text-slate-200 font-medium group-hover:text-white transition-colors">
+      <span className="text-sm md:text-base text-slate-700 dark:text-slate-200 font-medium group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
         {value}
       </span>
     </div>
@@ -73,13 +72,13 @@ function ContactSection() {
                 Communication
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight text-center">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight text-center">
               Let's{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-800">
                 Connect
               </span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-2xl text-center">
+            <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl text-center">
               Have a project in mind or just want to say hi? I'm always open to
               discussing new opportunities and creative ideas.
             </p>
@@ -98,7 +97,7 @@ function ContactSection() {
           <div className="lg:col-span-5 flex flex-col gap-12">
             <SectionReveal direction="left">
               <div className="flex flex-col gap-6">
-                <h3 className="text-xl font-bold text-white flex items-center gap-3">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                   <Send className="w-5 h-5 text-red-600" />
                   Direct Contact
                 </h3>
@@ -130,7 +129,7 @@ function ContactSection() {
 
             <SectionReveal direction="left" delay={0.2}>
               <div className="flex flex-col gap-6">
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
                   Social Presence
                 </h3>
                 <div className="flex flex-wrap gap-4">
@@ -138,7 +137,7 @@ function ContactSection() {
                     {
                       href: personalData.github,
                       icon: IoLogoGithub,
-                      color: "#ffffff",
+                      color: "currentColor",
                     },
                     {
                       href: personalData.linkedIn,
@@ -148,7 +147,7 @@ function ContactSection() {
                     {
                       href: personalData.codolio,
                       icon: FaCode,
-                      color: "#ffffff",
+                      color: "currentColor",
                     },
                     {
                       href: personalData.stackOverflow,
@@ -165,7 +164,7 @@ function ContactSection() {
                       key={idx}
                       href={social.href}
                       target="_blank"
-                      className="w-14 h-14 rounded-2xl border border-white/5 bg-white/[0.02] flex items-center justify-center hover:bg-white/[0.05] hover:border-white/20 hover:scale-110 transition-all duration-300"
+                      className="w-14 h-14 rounded-2xl border border-slate-300/70 dark:border-white/5 bg-slate-900/[0.03] dark:bg-white/[0.02] text-slate-700 dark:text-white flex items-center justify-center hover:bg-slate-900/[0.06] dark:hover:bg-white/[0.05] hover:border-slate-400/70 dark:hover:border-white/20 hover:scale-110 transition-all duration-300 shadow-sm dark:shadow-none"
                     >
                       <social.icon
                         className="w-6 h-6"

@@ -67,7 +67,7 @@ function About() {
                   Discovery
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight">
                 About{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-800">
                   The Architect
@@ -75,12 +75,12 @@ function About() {
               </h2>
             </div>
 
-            <div className="relative group p-8 lg:p-10 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-3xl overflow-hidden shadow-2xl">
+            <div className="relative group p-8 lg:p-10 rounded-3xl border border-slate-300/70 dark:border-white/5 bg-[#fff8f1]/85 dark:bg-white/[0.02] backdrop-blur-3xl overflow-hidden shadow-[0_16px_36px_rgba(68,42,22,0.14)] dark:shadow-2xl transition-colors duration-300">
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:rotate-12 transition-transform duration-700">
                 <Sparkles className="w-24 h-24 text-red-500" />
               </div>
 
-              <div className="about-description text-slate-300 text-lg lg:text-xl leading-relaxed text-justify space-y-4 font-medium italic">
+              <div className="about-description text-slate-700 dark:text-slate-300 text-lg lg:text-xl leading-relaxed text-justify space-y-4 font-medium italic">
                 {personalData.description}
               </div>
 
@@ -90,21 +90,21 @@ function About() {
 
             <div className="flex flex-wrap gap-8 items-center mt-4">
               <div className="flex flex-col">
-                <span className="text-3xl font-black text-white">1+</span>
+                <span className="text-3xl font-black text-slate-900 dark:text-white">1+</span>
                 <span className="text-xs text-slate-500 uppercase tracking-widest font-bold">
                   Years Experience
                 </span>
               </div>
               <div className="w-[1px] h-10 bg-white/10" />
               <div className="flex flex-col">
-                <span className="text-3xl font-black text-white">3+</span>
+                <span className="text-3xl font-black text-slate-900 dark:text-white">3+</span>
                 <span className="text-xs text-slate-500 uppercase tracking-widest font-bold">
                   Projects Built
                 </span>
               </div>
               <div className="w-[1px] h-10 bg-white/10" />
               <div className="flex flex-col">
-                <span className="text-3xl font-black text-white">10+</span>
+                <span className="text-3xl font-black text-slate-900 dark:text-white">10+</span>
                 <span className="text-xs text-slate-500 uppercase tracking-widest font-bold">
                   Technologies
                 </span>
@@ -123,11 +123,12 @@ function About() {
               className="about-image-card"
             >
               <div className="relative group">
+                <div className="pointer-events-none absolute -inset-10 rounded-[48px] bg-gradient-to-br from-red-300/25 via-amber-200/20 to-transparent blur-3xl opacity-80 dark:opacity-0 transition-opacity duration-300" />
                 {/* Decorative Frames */}
                 <div className="absolute -inset-4 border border-red-500/20 rounded-3xl group-hover:-inset-6 transition-all duration-500 opacity-50" />
                 <div className="absolute -inset-8 border border-red-950/10 rounded-[40px] group-hover:-inset-12 transition-all duration-700 delay-75 opacity-30" />
 
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-white/10 shadow-[0_0_50px_rgba(239,68,68,0.15)] bg-[#050505]">
+                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-slate-300/70 dark:border-white/10 shadow-[0_16px_40px_rgba(68,42,22,0.16)] dark:shadow-[0_0_50px_rgba(239,68,68,0.15)] bg-[#fff8f1] dark:bg-[#050505] transition-colors duration-300">
                   <Image
                     src={personalData.profile}
                     fill
@@ -138,7 +139,7 @@ function About() {
                   />
 
                   {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1e140d]/35 dark:from-[#050505] via-transparent to-transparent opacity-60" />
 
                   <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
                     <p className="text-white font-bold text-center tracking-widest uppercase text-xs">

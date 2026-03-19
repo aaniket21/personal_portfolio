@@ -18,7 +18,20 @@ const navItems = [
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+
+  const applyTheme = (nextTheme: "light" | "dark") => {
+    const isDark = nextTheme === "dark";
+    document.documentElement.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", nextTheme);
+    setTheme(nextTheme);
+  };
+
+  const toggleTheme = () => {
+    applyTheme(theme === "dark" ? "light" : "dark");
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +39,29 @@ const Navbar = () => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const storedTheme = localStorage.getItem("theme") as
+      | "light"
+      | "dark"
+      | null;
+
+    if (storedTheme === "light" || storedTheme === "dark") {
+      root.classList.toggle("dark", storedTheme === "dark");
+      setTheme(storedTheme);
+      setMounted(true);
+      return;
+    }
+
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const nextTheme = systemPrefersDark ? "dark" : "light";
+    root.classList.toggle("dark", systemPrefersDark);
+    setTheme(nextTheme);
+    setMounted(true);
   }, []);
 
   const renderLink = (
@@ -36,7 +72,7 @@ const Navbar = () => {
 
     // Shared classes for both desktop and mobile
     const baseClasses = isMobile
-      ? "block cursor-pointer py-3 text-lg font-semibold transition-all duration-300 border-b border-white/5"
+      ? "block cursor-pointer py-3 text-lg font-semibold transition-all duration-300 border-b border-slate-300/40 dark:border-white/5"
       : "cursor-pointer transition-all duration-300 relative group px-2 py-1 text-sm lg:text-base font-medium";
 
     if (isHomePage) {
@@ -49,7 +85,7 @@ const Navbar = () => {
           offset={-80}
           duration={500}
           activeClass="text-red-500 !font-bold"
-          className={`${baseClasses} text-slate-300 hover:text-white`}
+          className={`${baseClasses} text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white`}
           onClick={isMobile ? () => setIsMenuOpen(false) : undefined}
         >
           {item.label}
@@ -64,7 +100,7 @@ const Navbar = () => {
       <Link
         key={item.to}
         href={`/#${item.to}`}
-        className={`${baseClasses} text-slate-300 hover:text-white`}
+        className={`${baseClasses} text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white`}
         onClick={() => isMobile && setIsMenuOpen(false)}
       >
         {item.label}
@@ -79,7 +115,7 @@ const Navbar = () => {
     <nav
       className={`sticky top-0 z-[9999] transition-all duration-500 ${
         isScrolled
-          ? "bg-[#050505]/80 backdrop-blur-xl border-b border-white/10 py-2"
+          ? "bg-white/85 dark:bg-[#050505]/80 backdrop-blur-xl border-b border-slate-200/70 dark:border-white/10 py-2"
           : "bg-transparent py-4"
       }`}
     >
@@ -93,7 +129,7 @@ const Navbar = () => {
             alt="Aniket"
             width={isScrolled ? 50 : 60}
             height={isScrolled ? 50 : 60}
-            className="transition-all duration-500 rounded-full border border-white/10 overflow-hidden object-cover"
+            className="transition-all duration-500 rounded-full border border-slate-200/70 dark:border-white/10 overflow-hidden object-cover"
           />
         </Link>
 
@@ -102,11 +138,28 @@ const Navbar = () => {
           {navItems.map((item) => renderLink(item))}
         </div>
 
+        <div className="hidden md:flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            className="h-10 w-10 flex items-center justify-center rounded-xl border border-slate-300/70 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-700 dark:text-slate-100 hover:text-red-500 hover:border-red-500/60 transition-all duration-300 shadow-sm dark:shadow-none"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {mounted ? (theme === "dark" ? "🌞" : "🌙") : "🌙"}
+          </button>
+        </div>
+
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            className="h-10 w-10 flex items-center justify-center rounded-lg border border-slate-300/70 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-700 dark:text-slate-100 hover:text-red-500 transition-colors"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {mounted ? (theme === "dark" ? "🌞" : "🌙") : "🌙"}
+          </button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
+            className="p-2 text-slate-900 dark:text-white hover:bg-slate-200/60 dark:hover:bg-white/10 rounded-lg transition-colors"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
@@ -144,7 +197,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-[#050505]/95 backdrop-blur-2xl border-b border-white/10 md:hidden animate-in slide-in-from-top duration-300">
+        <div className="absolute top-full left-0 w-full bg-white/95 dark:bg-[#050505]/95 backdrop-blur-2xl border-b border-slate-200/70 dark:border-white/10 md:hidden animate-in slide-in-from-top duration-300">
           <div className="container mx-auto px-6 py-8 flex flex-col space-y-2">
             {navItems.map((item) => renderLink(item, true))}
           </div>

@@ -14,6 +14,10 @@ export default {
     },
     extend: {
       colors: {
+        brand: {
+          red: "#ef4444",
+          "red-deep": "#7f1d1d",
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
