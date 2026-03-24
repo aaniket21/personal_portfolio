@@ -127,11 +127,11 @@ const HeroSection = () => {
               </span>
             </h1>
             <p className="hero-heading text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed font-medium">
-              I'm{" "}
+              I'm{"  "}
               <span className="text-slate-900 dark:text-white font-bold">
                 {personalData.name}
               </span>
-              professional
+              a professional
               <span
                 className="text-red-500 ml-2 font-bold inline-block min-w-[200px]"
                 ref={designationRef}
