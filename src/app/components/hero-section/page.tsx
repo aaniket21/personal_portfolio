@@ -131,7 +131,7 @@ const HeroSection = () => {
               <span className="text-slate-900 dark:text-white font-bold">
                 {personalData.name}
               </span>
-              a professional
+              professional
               <span
                 className="text-red-500 ml-2 font-bold inline-block min-w-[200px]"
                 ref={designationRef}
